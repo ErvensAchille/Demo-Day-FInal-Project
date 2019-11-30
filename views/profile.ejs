@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sneaker Bot</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+		<noscript><link rel="stylesheet" href="noscript.css" /></noscript>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+                <form action="/up" enctype="multipart/form-data" method="post">
+                   <input type="file" name="file-to-upload">
+                   <input type="submit" value="Upload">
+                 </form>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div>
+      <div class="profileInfo">
+
+      </div>
+
+</div>
+
+<div>
+  <button id="button1" type="button" name="button">Show My Position</button>
+</div>
+
+
+<div class="updatedlocation">
+
+</div>
+<script src="jquery.min.js"></script>
+<script src="browser.min.js"></script>
+<script src="breakpoints.min.js"></script>
+<script src="util.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
